@@ -159,6 +159,9 @@ class Server {
         if(preg_match('/MSIE/i',$u_agent) && !preg_match('/Opera/i',$u_agent)){
             $bname = 'Internet Explorer';
             $ub = "MSIE";
+        } else if(preg_match('/Edg/i',$u_agent)){
+            $bname = 'Edge Browser';
+            $ub = "Edge";
         } else if(preg_match('/Firefox/i',$u_agent)){
             $bname = 'Mozilla Firefox';
             $ub = "Firefox";
