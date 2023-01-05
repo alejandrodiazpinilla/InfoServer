@@ -1,0 +1,37 @@
+{
+    "name": "rmunate/info-server",
+    "description": "Obtenga las variables globales del servidor, así como las variables propias de Laravel, para hacer sus validaciones o algoritmos.",
+    "keywords": [
+        "server",
+        "php",
+        "altum",
+        "rmunate"
+    ],
+    "homepage": "https://github.com/rmunate/PHPInfoServer",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Rmunate\\InfoServer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Raul Mauricio Uñate Castro",
+            "email": "raulmauriciounate@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        
+    },
+    "extra" : {
+        "branch-alias" : {
+            "dev-main": "v2.0.x-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
