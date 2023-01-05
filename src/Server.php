@@ -203,7 +203,7 @@ class Server {
         }
 
         /* Validar si es Edge */
-        if (str_contains($this->agent, 'Edg')) {
+        if (str_contains($this->agent, 'Edg/')) {
             $bname = "Edge Browser";
         }
 
