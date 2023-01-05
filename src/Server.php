@@ -159,9 +159,6 @@ class Server {
         if(preg_match('/MSIE/i',$u_agent) && !preg_match('/Opera/i',$u_agent)){
             $bname = 'Internet Explorer';
             $ub = "MSIE";
-        } else if(preg_match('/Edg/i',$u_agent)){
-            $bname = 'Edge Browser';
-            $ub = "Edge";
         } else if(preg_match('/Firefox/i',$u_agent)){
             $bname = 'Mozilla Firefox';
             $ub = "Firefox";
@@ -194,7 +191,7 @@ class Server {
             if (strripos($u_agent,"Version") < strripos($u_agent,$ub)){
                 $version= $matches['version'][0];
             } else {
-                $version= $matches['version'][1] ?? $version= $matches['version'][0];
+                $version= $matches['version'][1];
             }
         } else {
             $version= $matches['version'][0];
@@ -203,6 +200,11 @@ class Server {
         // Comprobar si tenemos una version.
         if ($version==null || $version==""){
             $version="?";
+        }
+
+        /* Validar si es Edge */
+        if (str_contains($this->agent, 'Edg')) {
+            $bname = "Edge Browser";
         }
 
         if ($data == 'name') {
