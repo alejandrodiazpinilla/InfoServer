@@ -4,16 +4,13 @@
 [![N|Solid](https://i.ibb.co/ZLzQTpm/Firma-Git-Hub.png)](#)
 
 ## Características
-
 - Conozca desde que sistema operativo se conectan a su aplicación.
 - Valide si es un acceso móvil o web.
 - Obtenga los datos globales del servidor.
 - Obtenga valores de la versión de PHP en uso.
 - Obtenga los datos del ENV de laravel para las revisiones que requiera.
 
-## Instalación
-#Intalació con Composer.
-
+## Instalación a trevés de Composer.
 ```sh
 composer require rmunate/info-server
 ```
@@ -26,20 +23,23 @@ use Rmunate\InfoServer\Server;
 
 ## Métodos
 
-Podrá invocar el método que requiera de la clase de manera estatica.
+Podrá invocar el método que requiera de la libreria de manera estatica.
 Listado Actual de Métodos
 
 METODOS 
 
 ```sh
-//¿El usuario se conecta desde un IPhone?
-Server::agent()->is_iPhone(); //True Or False
+# ALGUNOS EJEMPLOS 
 
-//Se obtiene la información completa del dispositivo desde donde se conectan.
+#¿El usuario se conecta desde un IPhone?
+Server::agent()->is_iPhone(); #True Or False
+
+#Se obtiene la información completa del dispositivo desde donde se conectan.
 Server::agent()->get();
 
-//Sistema Operativo Donde Corre PHP.
+#Sistema Operativo Donde Corre PHP.
 Server::php_uname();
+
 ```
 
 | METODO | DESCRIPCIÓN |
