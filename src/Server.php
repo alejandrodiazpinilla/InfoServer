@@ -8,7 +8,8 @@ namespace Rmunate\InfoServer;
  * raulmauriciounate@gmail.com
  */
 
-class Server {
+class Server 
+{
 
 #--------------------------╔═════════════════════════════════╗--------------------------#
 #--------------------------║      ATRIBUTOS DEL OBJETO       ║--------------------------#

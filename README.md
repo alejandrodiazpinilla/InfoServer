@@ -11,13 +11,13 @@
 - Obtenga los datos del ENV de laravel para las revisiones que requiera.
 
 ## Instalación a trevés de Composer.
-```sh
-composer require rmunate/info-server
+```console
+composer require rmunate/info-server v2.0.x-dev
 ```
 
 # Llamado y uso de Clase En Controladores
 
-```sh
+```php
 use Rmunate\InfoServer\Server;
 ```
 
@@ -28,7 +28,7 @@ Listado Actual de Métodos
 
 METODOS 
 
-```sh
+```php
 # ALGUNOS EJEMPLOS 
 
 #¿El usuario se conecta desde un IPhone?

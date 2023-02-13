@@ -1,6 +1,6 @@
 {
     "name": "rmunate/info-server",
-    "description": "Obtenga las variables globales del servidor, así como las variables propias de Laravel, para hacer sus validaciones o algoritmos.",
+    "description": "Obtenga las variables globales del servidor, así como las variables propias del ENV de Laravel, para hacer sus validaciones o algoritmos.",
     "keywords": [
         "server",
         "php",
