@@ -1,46 +1,22 @@
-# Manejo Variables de Servidor PHP-LARAVEL
-## _Una simple pero muy útil libreria para obtener las variables de entorno, del servidor y de PHP_
+# Info Server (PHP | LARAVEL)
+> [![Raul Mauricio Uñate Castro](https://storage.googleapis.com/lola-web/storage_apls/RecursosCompartidos/LogoGithubLibrerias.png)](#)
+Una simple pero muy útil libreria para obtener las variables de entorno, del servidor, de Lravel y de PHP
 
-[![N|Solid](https://i.ibb.co/ZLzQTpm/Firma-Git-Hub.png)](#)
-
-## Características
 - Conozca desde que sistema operativo se conectan a su aplicación.
 - Valide si es un acceso móvil o web.
 - Obtenga los datos globales del servidor.
 - Obtenga valores de la versión de PHP en uso.
 - Obtenga los datos del ENV de laravel para las revisiones que requiera.
 
-## Instalación a trevés de Composer.
+# Instalación
+## _Instalación a través de Composer_
+
 ```console
 composer require rmunate/info-server v2.0.x-dev
 ```
 
-# Llamado y uso de Clase En Controladores
-
-```php
-use Rmunate\InfoServer\Server;
-```
-
-## Métodos
-
-Podrá invocar el método que requiera de la libreria de manera estatica.
-Listado Actual de Métodos
-
-METODOS 
-
-```php
-# ALGUNOS EJEMPLOS 
-
-#¿El usuario se conecta desde un IPhone?
-Server::agent()->is_iPhone(); #True Or False
-
-#Se obtiene la información completa del dispositivo desde donde se conectan.
-Server::agent()->get();
-
-#Sistema Operativo Donde Corre PHP.
-Server::php_uname();
-
-```
+## Metodos
+Invoque el metodo que requiera.
 
 | METODO | DESCRIPCIÓN |
 | ------ | ------ |
@@ -116,9 +92,35 @@ Server::php_uname();
 | `Server::env()` | Retorno de un objeto con los datos de las variables en entorno de Laravel (Expone el contenido del ENV). |
 
 
-## Desarrollador
-- Ingeniero, Raúl Mauricio Uñate Castro
-- raulmauriciounate@gmail.com
+```php
+# ALGUNOS EJEMPLOS 
 
-## Licencia
-MIT
+#¿El usuario se conecta desde un IPhone?
+Server::agent()->is_iPhone(); #True Or False
+
+#Se obtiene la información completa del dispositivo desde donde se conectan.
+Server::agent()->get();
+// {#461 ▼ 
+//   +"http_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+//   +"is_iPhone": false
+//   +"is_Macintosh": true
+//   +"is_Linux": false
+//   +"is_Android": false
+//   +"is_Windows": false
+//   +"browser": {#458 ▼
+//     +"name": "Google Chrome"
+//     +"version": "110.0.0.0"
+//     +"platform": "Macintosh"
+//   }
+// }130853
+
+#Sistema Operativo Donde Corre PHP.
+Server::php_uname();
+// "Darwin MacBook-Pro-de-Grupo.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:08:47 PST 2022; root:xnu-8792.61.2~4/RELEASE_X86_64 x86_64"
+
+```
+
+## Mantenedores
+- Ingeniero, Raúl Mauricio Uñate Castro (raulmauriciounate@gmail.com)
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
