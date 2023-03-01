@@ -29,8 +29,6 @@ Invoque el metodo que requiera.
 | `Server::agent()->browser()` | Retorna un objeto con los datos del navegador en uso. |
 | `Server::agent()->get()` | Retorna el Agente Completo de Conexión. |
 
-![image](https://user-images.githubusercontent.com/91748598/189487993-98273c88-36fb-4c89-abe6-9d79cb0a6a40.png)
-
 | METODO | DESCRIPCIÓN |
 | ------ | ------ |
 | `Server::php_uname()` | Sistema Operativo Sobre El Cual Corre PHP.|
@@ -96,10 +94,13 @@ Invoque el metodo que requiera.
 # ALGUNOS EJEMPLOS 
 
 #¿El usuario se conecta desde un IPhone?
-Server::agent()->is_iPhone(); #True Or False
+Server::agent()->is_iPhone(); 
+// RESULTADO:
+// True Or False
 
 #Se obtiene la información completa del dispositivo desde donde se conectan.
 Server::agent()->get();
+// RESULTADO:
 // {#461 ▼ 
 //   +"http_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
 //   +"is_iPhone": false
@@ -116,6 +117,7 @@ Server::agent()->get();
 
 #Sistema Operativo Donde Corre PHP.
 Server::php_uname();
+// RESULTADO:
 // "Darwin MacBook-Pro-de-Grupo.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:08:47 PST 2022; root:xnu-8792.61.2~4/RELEASE_X86_64 x86_64"
 
 ```
