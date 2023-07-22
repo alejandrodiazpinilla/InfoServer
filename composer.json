@@ -1,5 +1,5 @@
 {
-    "name": "rmunate/info-server",
+    "name": "rmunate/server",
     "description": "Obtenga las variables globales del servidor, así como las variables propias del ENV de Laravel, para hacer sus validaciones o algoritmos.",
     "keywords": [
         "server",
@@ -12,7 +12,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Rmunate\\InfoServer\\": "src/"
+            "Rmunate\\Server\\": "src/"
         }
     },
     "authors": [
