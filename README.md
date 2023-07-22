@@ -1,3 +1,44 @@
+SERVER MANAGER (Laravel Framework) V2.X
+
+La clase Server Manager (Laravel Framework) V2.X es una herramienta poderosa que te permitirá acceder y gestionar toda la información relevante sobre el servidor en tiempo de ejecución dentro de una aplicación Laravel. Con una interfaz sencilla y métodos eficientes, esta clase te brinda la capacidad de extraer datos cruciales del sistema, navegador y dispositivo del usuario que se conecta a tu aplicación.
+
+Con la ayuda de la clase Server Manager (Laravel Framework) V2.X, podrás optimizar y personalizar la experiencia de usuario según las características específicas del sistema y el dispositivo, garantizando así un rendimiento excepcional y una adaptabilidad única para cada usuario que se conecte a tu aplicación Laravel.
+
+![LOGO](https://github.com/rmunate/PHPInfoServer/assets/91748598/1c75497c-5afb-4700-a98b-4b2e77c20754)
+
+Aquí está la tabla de contenido con enlaces a cada sección:
+
+1. [Clase System](#clase-system)
+   - Métodos Disponibles
+     - [Información sobre PHP](#información-sobre-php)
+     - [Variables de Entorno](#variables-de-entorno)
+     - [Configuración del PHP INI](#configuración-del-php-ini)
+     - [Información del Servidor](#información-del-servidor)
+
+2. [Clase PhpRunTime](#clase-phpruntime)
+   - Métodos Disponibles
+
+3. [Clase LaravelRuntime](#clase-laravelruntime)
+   - Métodos Disponibles
+     - [App (Configuración de los valores del archivo app.php)](#app-configuración-de-los-valores-del-archivo-appphp)
+     - [Auth (Configuración de los valores del archivo auth.php)](#auth-configuración-de-los-valores-del-archivo-authphp)
+     - [Broadcasting (Configuración de los valores del archivo broadcasting.php)](#broadcasting-configuración-de-los-valores-del-archivo-broadcastingphp)
+     - [Cache (Configuración de los valores del archivo cache.php)](#cache-configuración-de-los-valores-del-archivo-cachephp)
+     - [Cors (Configuración de los valores del archivo cors.php)](#cors-configuración-de-los-valores-del-archivo-corsphp)
+     - [Database (Configuración de los valores del archivo database.php)](#database-configuración-de-los-valores-del-archivo-databasephp)
+     - [Filesystems (Configuración de los valores del archivo filesystems.php)](#filesystems-configuración-de-los-valores-del-archivo-filesystemsphp)
+     - [Hashing (Configuración de los valores del archivo hashing.php)](#hashing-configuración-de-los-valores-del-archivo-hashingphp)
+     - [Logging (Configuración de los valores del archivo logging.php)](#logging-configuración-de-los-valores-del-archivo-loggingphp)
+     - [Mail (Configuración de los valores del archivo mail.php)](#mail-configuración-de-los-valores-del-archivo-mailphp)
+     - [Queue (Configuración de los valores del archivo queue.php)](#queue-configuración-de-los-valores-del-archivo-queuephp)
+     - [Sanctum (Configuración de los valores del archivo sanctum.php)](#sanctum-configuración-de-los-valores-del-archivo-sanctumphp)
+     - [Services (Configuración de los valores del archivo services.php)](#services-configuración-de-los-valores-del-archivo-servicesphp)
+     - [Session (Configuración de los valores del archivo session.php)](#session-configuración-de-los-valores-del-archivo-sessionphp)
+     - [View (Configuración de los valores del archivo view.php)](#view-configuración-de-los-valores-del-archivo-viewphp)
+
+4. [Clase Agent](#clase-agent)
+   - Métodos Disponibles
+
 ## Clase System
 
 La Clase System permite consultar toda la información referente a las variables, valores y configuraciones existentes del lado del servidor (Variables del Servidor, Variables de Entorno, Valores de PHP).
@@ -94,20 +135,51 @@ Por último, tienes toda una gama de métodos para conocer los valores del servi
 | `System::request_time_float()` | Obtiene la marca de tiempo del inicio de la solicitud con precisión de microsegundos. Disponible desde PHP 5.4.0. |
 | `System::request_time()` | Obtiene la marca de tiempo Unix del inicio de la solicitud. Disponible desde PHP 5.1.0. |
 
+### Ejemplos de Uso
+```php
+//Validar si existe una variable a nivel de servidor
+System::hasServerVariable('REMOTE_ADDR');
+
+//Obtener Un Valor A Nivel De Servidor
+System::hasServerVariable('getServerVariable');
+
+//Conocer la configuracion del php.ini
+System::php_ini_settings();
+
+//Conocer si existe una variable de entorno $_ENV
+System::hasEnvironmentVariable('APP_NAME');
+
+//Conocer y obtener variables de entorno den $_ENV
+System::getEnvironmentVariable('APP_NAME');
+
+//Conocer el sistema sobre el cual se ejecuta PHP
+System::php_uname();
+```
+
+
+
+
+
+
+
+
+
+
+
 ## Clase PhpRunTime
 
 La clase `PhpRunTime` proporciona métodos para gestionar la configuración de PHP en tiempo de ejecución. Permite establecer, obtener y restaurar opciones de configuración, así como verificar su existencia y estado.
 
 ### Métodos Disponibles
 
-| Método                              | Descripción                                                                                                                                                                     |
-|-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `PhpRunTime::set(string $option, $value): bool` | Establece el valor de una opción de configuración de PHP en tiempo de ejecución utilizando `ini_set()`.                                                         |
-| `PhpRunTime::get(string $option)`   | Obtiene el valor actual de una opción de configuración de PHP. Si la opción no está configurada o no se encuentra, retorna `null`.                              |
-| `PhpRunTime::restore(string $option): bool` | Restaura el valor de una opción de configuración de PHP a su valor predeterminado. Retorna `true` si la restauración es exitosa, o `false` en caso contrario.  |
-| `PhpRunTime::restoreAll(): bool`    | Restaura todas las opciones de configuración de PHP a sus valores predeterminados. Retorna `true` si todas las restauraciones son exitosas, o `false` si no.   |
-| `PhpRunTime::isOptionSet(string $option): bool` | Verifica si una opción de configuración está establecida y tiene un valor no vacío. Retorna `true` si la opción está configurada, o `false` si no.          |
-| `PhpRunTime::doesOptionExist(string $option): bool` | Verifica si una opción de configuración existe en el archivo `php.ini`. Retorna `true` si la opción existe, o `false` si no.                                |
+| Método | Descripción |
+| - | - |
+| `PhpRunTime::set($option, $value)` | Establece el valor de una opción de configuración de PHP en tiempo de ejecución utilizando `ini_set()`. |
+| `PhpRunTime::get($option)` | Obtiene el valor actual de una opción de configuración de PHP. Si la opción no está configurada o no se encuentra, retorna `null`. |
+| `PhpRunTime::restore($option)` | Restaura el valor de una opción de configuración de PHP a su valor predeterminado. Retorna `true` si la restauración es exitosa, o `false` en caso contrario. |
+| `PhpRunTime::restoreAll()` | Restaura todas las opciones de configuración de PHP a sus valores predeterminados. Retorna `true` si todas las restauraciones son exitosas, o `false` si no. |
+| `PhpRunTime::isOptionSet($option)` | Verifica si una opción de configuración está establecida y tiene un valor no vacío. Retorna `true` si la opción está configurada, o `false` si no.          |
+| `PhpRunTime::doesOptionExist($option)` | Verifica si una opción de configuración existe en el archivo `php.ini`. Retorna `true` si la opción existe, o `false` si no.                                |
 
 ### Ejemplos de Uso
 
@@ -121,9 +193,9 @@ PhpRunTime::set('display_errors', 'On');
 
 // Verificar si la opción está configurada y tiene un valor no vacío
 if (PhpRunTime::isOptionSet('display_errors')) {
-    echo 'La opción "display_errors" está activada.';
+    // 'La opción "display_errors" está activada.';
 } else {
-    echo 'La opción "display_errors" no está configurada.';
+    // 'La opción "display_errors" no está configurada.';
 }
 ```
 
@@ -136,9 +208,9 @@ use Rmunate\Server\PhpRunTime;
 $maxExecutionTime = PhpRunTime::get('max_execution_time');
 
 if ($maxExecutionTime !== null) {
-    echo "El valor actual de 'max_execution_time' es: $maxExecutionTime segundos.";
+    // "El valor actual de 'max_execution_time' es: $maxExecutionTime segundos.";
 } else {
-    echo "La opción 'max_execution_time' no está configurada.";
+    // "La opción 'max_execution_time' no está configurada.";
 }
 ```
 
@@ -155,9 +227,9 @@ PhpRunTime::restore('memory_limit');
 
 // Verificar si la opción está configurada y tiene un valor no vacío
 if (PhpRunTime::isOptionSet('memory_limit')) {
-    echo 'La opción "memory_limit" está configurada.';
+    // 'La opción "memory_limit" está configurada.';
 } else {
-    echo 'La opción "memory_limit" no está configurada.';
+    // 'La opción "memory_limit" no está configurada.';
 }
 ```
 
@@ -175,9 +247,9 @@ PhpRunTime::restoreAll();
 
 // Verificar si las opciones están configuradas y tienen valores no vacíos
 if (PhpRunTime::isOptionSet('display_errors') || PhpRunTime::isOptionSet('error_reporting')) {
-    echo 'Algunas opciones no pudieron ser restauradas.';
+    // 'Algunas opciones no pudieron ser restauradas.';
 } else {
-    echo 'Todas las opciones fueron restauradas correctamente.';
+    // 'Todas las opciones fueron restauradas correctamente.';
 }
 ```
 
@@ -188,8 +260,6 @@ if (PhpRunTime::isOptionSet('display_errors') || PhpRunTime::isOptionSet('error_
 - Algunas opciones de configuración pueden estar deshabilitadas en entornos compartidos de alojamiento (shared hosting), lo que puede limitar la capacidad de cambiar ciertas configuraciones.
 
 - Es importante tener cuidado al modificar la configuración de PHP, ya que algunos cambios pueden afectar el rendimiento y la seguridad de las aplicaciones. Se recomienda consultar la documentación oficial de PHP para obtener información detallada sobre cada opción de configuración.
-
-
 
 ## Clase LaravelRuntime
 La clase `LaravelRuntime` te faculta para modificar los valores de configuración de Laravel en tiempo de ejecución. Es importante tener en cuenta que estos cambios no afectarán los valores en el archivo `.env`, sino que solo se aplicarán mientras ejecutas los scripts.
@@ -461,9 +531,9 @@ Esta clase ofrece una gran variedad de metodos que te permitirá conocer los dat
 
 ### Metodos Disponibles.
 | Método | Descripción |
-|-|-|-|
+|-|-|
 | `Agent::get()` | Retorna el agente de conexión actual. |
-| `Agent::detected()->isMobile()` | Valida si el agente proviene de un dispositivo  . |
+| `Agent::detected()->isMobile()` | Valida si el agente proviene de un dispositivo . |
 | `Agent::detected()->isDesktop()` | Retorna `true` si el usuario no está accediendo desde un dispositivo móvil. |
 | `Agent::detected()->isIPhone()` | Retorna `true` si el agente del usuario corresponde a un iPhone. |
 | `Agent::detected()->isMacintosh()` | Retorna `true` si el agente del usuario corresponde a un sistema operativo Macintosh. |
@@ -478,4 +548,4 @@ Esta clase ofrece una gran variedad de metodos que te permitirá conocer los dat
 | `Agent::detected()->remoteAddress()` | Retorna la IP en uso en la conexión al sistema. |
 | `Agent::detected()->remotePort()` | Retorna el puerto en uso en la conexión al sistema. |
 
-Facilmente podras extraer datos de la conexion a tu aplicacion.
+Facilmente podrás extraer datos de la conexión a tu aplicación. Podrás ofrecer diferentes experiencias dependiendo de qué sistema, navegador o dispositivo utilice el usuario al conectarse.
