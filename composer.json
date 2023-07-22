@@ -1,6 +1,6 @@
 {
-    "name": "rmunate/server",
-    "description": "Obtenga las variables globales del servidor, así como las variables propias del ENV de Laravel, para hacer sus validaciones o algoritmos.",
+    "name": "rmunate/server-manager",
+    "description": "This powerful tool provides you with access to and management of all relevant server information at runtime within your Laravel application. With a user-friendly interface and efficient methods, this class allows you to extract crucial data about the system, browser, and device of the user connecting to your application.",
     "keywords": [
         "server",
         "php",
@@ -18,15 +18,16 @@
     "authors": [
         {
             "name": "Raul Mauricio Uñate Castro",
-            "email": "raulmauriciounate@gmail.com"
+            "email": "raulmauriciounate@gmail.com",
+            "homepage": "https://github.com/rmunate",
+            "role": "owner"
         }
     ],
     "require": {
-        "php": ">=7.4"
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^9.0|^10.0"
     },
-    "require-dev": {
-        
-    },
+    "require-dev": {},
     "extra" : {
         "branch-alias" : {
             "dev-main": "v2.0.x-dev"
