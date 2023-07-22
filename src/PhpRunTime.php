@@ -2,9 +2,9 @@
 
 namespace Rmunate\Server;
 
-use Rmunate\Server\Bases\BasePhpIni;
+use Rmunate\Server\Bases\BasePhpRunTime;
 
-class PhpIni extends BasePhpIni
+class PhpRunTime extends BasePhpRunTime
 {
     /**
      * Set a PHP configuration option using ini_set().
@@ -13,15 +13,12 @@ class PhpIni extends BasePhpIni
      * @param mixed $value The value to set for the option.
      * @return bool True if the option was set successfully, false otherwise.
      */
-    public static function setOption(string $option, $value): bool
+    public static function set(string $option, $value): bool
     {
-        // Ensure the option is a string and not empty.
         $option = trim($option);
         if (empty($option)) {
             return false;
         }
-
-        // Try to set the option and return the result.
         return ini_set($option, $value) !== false;
     }
 
@@ -31,15 +28,12 @@ class PhpIni extends BasePhpIni
      * @param string $option The name of the option to retrieve.
      * @return mixed|null The current value of the option, or null if the option is not set or not found.
      */
-    public static function getOption(string $option)
+    public static function get(string $option)
     {
-        // Ensure the option is a string and not empty.
         $option = trim($option);
         if (empty($option)) {
             return null;
         }
-
-        // Get the value of the option and return it.
         return ini_get($option);
     }
 
@@ -49,23 +43,37 @@ class PhpIni extends BasePhpIni
      * @param string $option The name of the option to restore.
      * @return bool True if the option was restored successfully, false otherwise.
      */
-    public static function restoreOption(string $option): bool
+    public static function restore(string $option): bool
     {
-        // Ensure the option is a string and not empty.
         $option = trim($option);
         if (empty($option)) {
             return false;
         }
-
-        // Try to restore the option to its default value and return the result.
-        return ini_restore($option);
+        return ini_restore($option) !== false;
     }
 
     /**
-     * Check if a PHP configuration option is set (has a non-empty value).
+     * Restaura todas las opciones de configuración a sus valores predeterminados.
      *
-     * @param string $option The name of the option to check.
-     * @return bool True if the option is set, false otherwise.
+     * @return bool True si todas las opciones fueron restauradas correctamente, false si no se pudo restaurar alguna opción.
+     */
+    public static function restoreAll(): bool
+    {
+        $modifiedOptions = ini_get_all();
+        $success = true;
+        foreach ($modifiedOptions as $optionName => $optionValue) {
+            if (ini_restore($optionName) === false) {
+                $success = false;
+            }
+        }
+        return $success;
+    }
+
+    /**
+     * Verifica si una opción de configuración está establecida y tiene un valor no vacío.
+     *
+     * @param string $option El nombre de la opción a verificar.
+     * @return bool True si la opción está establecida y tiene un valor no vacío, false si no.
      */
     public static function isOptionSet(string $option): bool
     {
@@ -75,8 +83,11 @@ class PhpIni extends BasePhpIni
             return false;
         }
 
+        // Get the value of the option.
+        $value = ini_get($option);
+
         // Check if the option is set and has a non-empty value.
-        return ini_get($option) !== '';
+        return $value !== false && $value !== '';
     }
 
     /**

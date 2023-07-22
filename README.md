@@ -1,128 +1,481 @@
-# Info Server (PHP | LARAVEL)
-> [![Raul Mauricio Uñate Castro](https://storage.googleapis.com/lola-web/storage_apls/RecursosCompartidos/LogoGithubLibrerias.png)](#)
-Una simple pero muy útil libreria para obtener las variables de entorno, del servidor, de Lravel y de PHP
+## Clase System
 
-- Conozca desde que sistema operativo se conectan a su aplicación.
-- Valide si es un acceso móvil o web.
-- Obtenga los datos globales del servidor.
-- Obtenga valores de la versión de PHP en uso.
-- Obtenga los datos del ENV de laravel para las revisiones que requiera.
+La Clase System permite consultar toda la información referente a las variables, valores y configuraciones existentes del lado del servidor (Variables del Servidor, Variables de Entorno, Valores de PHP).
 
-# Instalación
-## _Instalación a través de Composer_
+### Métodos Disponibles
 
-```console
-composer require rmunate/info-server v2.0.x-dev
-```
+Los siguientes métodos retornan información inmutable de PHP.
 
-## Metodos
-Invoque el metodo que requiera.
+#### Información sobre PHP
 
-| METODO | DESCRIPCIÓN |
-| ------ | ------ |
-| `Server::agent()->is_iPhone()` | Retorna TRUE si el usuario se está conectando al sistema desde un IPhone. |
-| `Server::agent()->is_Macintosh()` | Retorna TRUE si el usuario se está conectando al sistema desde un MAC. |
-| `Server::agent()->is_Linux()` | Retorna TRUE si el usuario se está conectando al sistema desde un Linux (PC o Sistemas Android). |
-| `Server::agent()->is_Android()` | Retorna TRUE si el usuario se está conectando al sistema desde un Android. |
-| `Server::agent()->is_Windows()` | Retorna TRUE si el usuario se está conectando al sistema desde un Windows. |
-| `Server::agent()->is_Mobile()` | Retorna TRUE si el usuario se está conectando desde un dispositivo movil. |
-| `Server::agent()->browser()` | Retorna un objeto con los datos del navegador en uso. |
-| `Server::agent()->get()` | Retorna el Agente Completo de Conexión. |
+| Método | Descripción y Retorno  |
+| ------ | ----------------------- |
+| `System::php_uname()` | Obtiene el sistema operativo en el que se ejecuta PHP. |
+| `System::php_version()` | Obtiene la versión actual de PHP en notación "major.minor.edition[extra]". |
+| `System::php_major_version()` | Obtiene la "versión mayor" actual de PHP como un entero (por ejemplo, int(5) en la versión "5.2.7-extra"). |
+| `System::php_minor_version()` | Obtiene la "versión menor" actual de PHP como un entero (por ejemplo, int(2) en la versión "5.2.7-extra"). |
+| `System::php_release_version()` | Obtiene la versión de lanzamiento de PHP. |
+| `System::php_version_id()` | Obtiene la identificación de versión de PHP. |
+| `System::php_extra_version()` | Obtiene la versión "extra" de PHP como una cadena (por ejemplo, '-extra' en la versión "5.2.7-extra"). A menudo utilizado por distribuidores para indicar la versión del paquete. |
+| `System::php_maxpathlen()` | Obtiene la longitud máxima de los nombres de archivo (incluidos los directorios) admitidos por la compilación de PHP. |
+| `System::php_os()` | Obtiene el sistema operativo para el cual se construyó PHP. |
+| `System::php_os_family()` | Obtiene la familia de sistemas operativos para los cuales se construyó PHP. Puede ser 'Windows', 'BSD', 'OSX', 'Solaris', 'Linux' o 'Unknown'. Disponible desde PHP 7.2.0. |
+| `System::php_int_max()` | Obtiene el número entero más grande admitido en esta compilación de PHP. Normalmente int(2147483647) en sistemas de 32 bits e int(9223372036854775807) en sistemas de 64 bits. |
+| `System::php_int_min()` | Obtiene el número entero más pequeño admitido en esta compilación de PHP. Normalmente int(-2147483648) en sistemas de 32 bits e int(-9223372036854775808) en sistemas de 64 bits. Por lo general, PHP_INT_MIN === ~PHP_INT_MAX. |
+| `System::php_int_size()` | Obtiene el tamaño de un número entero en bytes en esta compilación de PHP. |
+| `System::php_float_dig()` | Obtiene el número de dígitos decimales que se pueden redondear en un número flotante y revertirlos sin pérdida de precisión. Disponible desde PHP 7.2.0. |
+| `System::php_float_epsilon()` | Obtiene el número flotante positivo más pequeño x, tal que x + 1.0 != 1.0. Disponible desde PHP 7.2.0. |
+| `System::php_float_min()` | Obtiene el número flotante positivo más pequeño que se puede representar. Para obtener el número flotante negativo más pequeño representable, use -PHP_FLOAT_MAX. Disponible desde PHP 7.2.0. |
+| `System::php_float_max()` | Obtiene el número flotante más grande que se puede representar. Disponible desde PHP 7.2.0. |
 
-| METODO | DESCRIPCIÓN |
-| ------ | ------ |
-| `Server::php_uname()` | Sistema Operativo Sobre El Cual Corre PHP.|
-| `Server::php_version()` | La versión actual de PHP en notación "mayor.menor.edición[extra]". |
-| `Server::php_major_version()` | La versión "mayor" actual de PHP como valor integer (p.ej., int(5) en la versión "5.2.7-extra"). |
-| `Server::php_minor_version()` | La versión "menor" actual de PHP como valor integer (p.ej, int(2) en la versión "5.2.7-extra"). |
-| `Server::php_release_version()` | Detalle Release Versión PHP |
-| `Server::php_version_id()` | ID Version de PHP |
-| `Server::php_extra_version()` | La versión "extra" actual de PHP, en forma de string (p.ej., '-extra' para la versión "5.2.7-extra"). Se usa a menudo por los distribuidores para indicar la versión de un paquete. |
-| `Server::php_maxpathlen()` | La longitud máxima de los nombres de ficheros (incluyendo directorios) admitida por la compilación de PHP. |
-| `Server::php_os()` | El sistema operativo para el que se construyó PHP. |
-| `Server::php_os_family()` | La familia de sistemas operativos para la que se construyó PHP. Puede se 'Windows', 'BSD', 'OSX', 'Solaris', 'Linux' or 'Unknown'. Disponible desde PHP 7.2.0. |
-| `Server::php_int_max()` | El número entero más grande admitido en esta compilación de PHP. Normalmente int(2147483647) en sistemas de 32 bits y int(9223372036854775807) en sistemas de 64 bits. |
-| `Server::php_int_min()` | El número entero más pequeño admitido en esta compilación de PHP. Normalmente int(-2147483648) en sistemas de 32 bits y int(-9223372036854775808) en sistemas de 64 bits. Usualmente, PHP_INT_MIN === ~PHP_INT_MAX. |
-| `Server::php_int_size()` | El tamaño de un número entero en bytes en esta compilación de PHP. |
-| `Server::php_float_dig()` | Número de dígitos decimales que se pueden redondear en un float y revertirlos si pédida de precisión. Disponible a partir de PHP 7.2.0. |
-| `Server::php_float_epsilon()` | El menor número positivo representable x, tal que x + 1.0 != 1.0. Disponible a partir de PHP 7.2.0. |
-| `Server::php_float_min()` | El menor número positivo de punto flotante representable. Si necesita el menor número de punto flotante negative representable, use - PHP_FLOAT_MAX. Disponible a partir de PHP 7.2.0. |
-| `Server::php_float_max()` | El mayor número de punto flotante representable. Disponible a partir de PHP 7.2.0. |
-| `Server::user()` | Ejemplo Return: "www-data".|
-| `Server::home()` | Ejemplo Return: "/var/www". |
-| `Server::script_name()` | Contiene la ruta del script actual. Esto es de utilidad para las páginas que necesiten apuntarse a si mismas. La constante __FILE__ contiene la ruta absoluta y el nombre del archivo actual incluido. |
-| `Server::request_uri()` |  La URI que se empleó para acceder a la página. Por ejemplo: '/index.html'. |
-| `Server::query_string()` | Si existe, la cadena de la consulta de la petición de la página. |
-| `Server::request_method()` | Método de petición empleado para acceder a la página, por ejemplo 'GET', 'HEAD', 'POST', 'PUT'. |
-| `Server::server_protocol()` | Nombre y número de revisión del protocolo de información a través del cual la página es solicitada, por ejemplo 'HTTP/1.0'. |
-| `Server::gateway_interface()` | Número de revisión de la especificación CGI que está empleando el servidor, por ejemplo 'CGI/1.1'. |
-| `Server::redirect_url()` | URL definitica de la petición. |
-| `Server::remote_port()` | El puerto empleado por la máquina del usuario para comunicarse con el servidor web. |
-| `Server::script_filename()` | La ruta del script ejecutándose actualmente en forma absoluta. |
-| `Server::server_admin()` | El valor dado a la directiva SERVER_ADMIN (de Apache) en el archivo de configuración del servidor web. Si el script se está ejecutando en un host virtual, el valor dado será el definido para dicho host virtual. |
-| `Server::context_document_root()` | La ruta del script ejecutándose actualmente hasta la carpeta sin ficehero. |
-| `Server::context_prefix()` | Metodo sin Documentacion nueva version Apache. |
-| `Server::request_scheme()` |  Retorna HTTP o HTTPS. |
-| `Server::document_root()` |  El directorio raíz de documentos del servidor en el cual se está ejecutando el script actual, según está definida en el archivo de configuración del servidor. |
-| `Server::remote_addr()` |  La dirección IP desde la cual está viendo la página actual el usuario. |
-| `Server::server_port()` |  El puerto de la máquina del servidor usado por el servidor web para la comunicación. Para las configuraciones por omisión, el valor será '80'; el empleo de SSL, por ejemplo, cambiará dicho valor al valor definido para el puerto HTTP seguro. |
-| `Server::server_addr()` | La dirección IP del servidor donde se está ejecutando actualmente el script. |
-| `Server::server_name()` | El nombre del host del servidor donde se está ejecutando actualmente el script. Si el script se ejecuta en un host virtual se obtendrá el valor del nombre definido para dicho host virtual. |
-| `Server::server_software()` | Cadena de identificación del servidor dada en las cabeceras de respuesta a las peticiones. |
-| `Server::server_signature()` | Cadena que contiene la versión del servidor y el nombre del host virtual que son añadidas a las páginas generadas por el servidor, si esta habilitada esta funcionalidad. |
-| `Server::path()` |  Retorno de directorio bin. |
-| `Server::http_cookie()` |  Contiene el valor bruto del encabezado 'Cookie' enviado por el agente de usuario. |
-| `Server::http_accept_language()` |  Contenido de la cabecera Accept-Language: de la petición actual, si existe. Por ejemplo: 'en'. |
-| `Server::http_accept_encoding()` |  Contenido de la cabecera Accept-Encoding: de la petición actual, si existe. Por ejemplo: 'gzip'. |
-| `Server::http_sec_fetch_dest()` |  Por ejemplo: 'document'. |
-| `Server::http_sec_fetch_user()` |  Por ejemplo: '?1'. |
-| `Server::http_sec_fetch_mode()` |  Por ejemplo: 'navigate'. |
-| `Server::http_sec_fetch_site()` |  Por ejemplo: 'none'. |
-| `Server::http_accept()` |  Contenido de la cabecera Accept: de la petición actual, si existe. |
-| `Server::http_user_agent()` | Contenido de la cabecera User-Agent: de la petición actual, si existe. Consiste en una cadena que indica el agente de usuario empleado para acceder a la pagina. Un ejemplo típico es: Mozilla/4.5 [en] (X11; U; Linux 2.2.9 i586). Entre otras opciones, puede emplear dicho valor con get_browser() para personalizar el resultado de la salida de la página en función de las capacidades del agente de usuario empleado. |
-| `Server::http_upgrade_insecure_requests()` | Solicitudes inseguras de actualización http |
-| `Server::http_sec_ch_ua_platform()` | Plataforma de conexion del usuario |
-| `Server::http_sec_ch_ua_mobile()` | Conexion movil a la plataforma |
-| `Server::http_host()` | Contenido de la cabecera Host: de la petición actual, si existe. |
-| `Server::request_time_float()` | El timestamp del inicio de la solicitud, con precisión microsegundo. Disponible desde PHP 5.4.0. |
-| `Server::request_time()` | Fecha Unix de inicio de la petición. Disponible desde PHP 5.1.0. |
-| `Server::all()` | Retorno de un objeto con los datos de las variables globales del servidor contemplando las variables del ENV de Laravel. |
-| `Server::env()` | Retorno de un objeto con los datos de las variables en entorno de Laravel (Expone el contenido del ENV). |
+#### Variables de Entorno
 
+Podremos obtener cualquier valor disponible en las variables de entorno, al igual que validar si la variable existe.
+
+| Método | Descripción y Retorno |
+| ------ | --------------------- |
+| `System::hasEnvironmentVariable($key)` | Determina si existe el valor de configuración dado. |
+| `System::getEnvironmentVariable($key, $default = null)` | Obtiene la variable de entorno con la clave dada. Si no se encuentra, se devuelve el valor predeterminado (si se proporciona). |
+| `System::allEnvironmentVariables()` | Obtiene todas las variables de entorno. |
+
+#### Configuración del PHP INI
+
+Podremos consultar la configuración del PHP INI de forma fácil, entendible y rápida.
+
+| Método | Descripción |
+| ------ | ----------- |
+| `System::php_ini_settings()` | Obtiene la información completa de la configuración de PHP (ajustes de php.ini). Devuelve un array asociativo con los ajustes de configuración o null si hay un error. |
+| `System::active_php_extensions()` | Obtiene la lista de extensiones de PHP activas. Devuelve un array con los nombres de las extensiones activas o null si hay un error. |
+
+#### Información del Servidor
+
+Por último, tienes toda una gama de métodos para conocer los valores del servidor.
+
+| Método | Descripción |
+| ------ | ----------- |
+| `System::hasServerVariable($variable)` | Verifica si una variable de servidor específica está definida. |
+| `System::getServerVariable($variable)` | Obtiene el valor de una variable de servidor específica. |
+| `System::user()` | Obtiene el usuario que está ejecutando el script de PHP, si está disponible. |
+| `System::home()` | Obtiene el directorio de inicio del usuario, si está disponible. |
+| `System::script_name()` | Obtiene la ruta y el nombre del script actual. Útil para autoreferenciar páginas. |
+| `System::request_uri()` | Obtiene la URI utilizada para acceder a la página. |
+| `System::query_string()` | Obtiene la cadena de consulta de la solicitud actual, si está disponible. |
+| `System::request_method()` | Obtiene el método de solicitud utilizado para acceder a la página. |
+| `System::server_protocol()` | Obtiene el nombre y número de revisión del protocolo de información a través del cual se solicitó la página. |
+| `System::gateway_interface()` | Obtiene la revisión de especificación CGI utilizada por el servidor. |
+| `System::redirect_url()` | Obtiene la URL después de la redirección, si está disponible. |
+| `System::remote_port()` | Obtiene el puerto utilizado por la máquina del usuario para comunicarse con el servidor web. |
+| `System::script_filename()` | Obtiene la ruta y el nombre absoluto del script que se está ejecutando actualmente. |
+| `System::server_admin()` | Obtiene el valor de la directiva `SERVER_ADMIN` (de Apache) en el archivo de configuración del servidor. Si el script se ejecuta en un host virtual, el valor será el definido para ese host virtual. |
+| `System::context_document_root()` | Obtiene la raíz del documento del script actual sin una barra diagonal al final. |
+| `System::context_prefix()` | Método sin documentación para nuevas versiones de Apache. |
+| `System::request_scheme()` | Obtiene el esquema utilizado en la solicitud, ya sea "HTTP" o "HTTPS". |
+| `System::document_root()` | Obtiene el directorio raíz del servidor, tal como está definido en el archivo de configuración del servidor. |
+| `System::remote_addr()` | Obtiene la dirección IP desde la cual el usuario actual está viendo la página. |
+| `System::server_port()` | Obtiene el puerto del servidor utilizado para la comunicación. Por defecto, el valor será '80'. Si se usa SSL, por ejemplo, este valor se cambiará al definido para el puerto seguro de HTTP. |
+| `System::server_addr()` | Obtiene la dirección IP del servidor donde se está ejecutando el script. |
+| `System::server_name()` | Obtiene el nombre del servidor donde se está ejecutando el script. Si el script se ejecuta en un host virtual, el valor será el definido para ese host virtual. |
+| `System::server_software()` | Obtiene la cadena de identificación de software del servidor proporcionada en las cabeceras de respuesta a las solicitudes. |
+| `System::server_signature()` | Obtiene la cadena de firma del servidor que contiene la versión del servidor y el nombre del host virtual. Se agrega a las páginas generadas por el servidor si esta característica está habilitada. |
+| `System::path()` | Obtiene el valor de la variable de entorno `PATH`. Retorna el valor sin formato del encabezado 'Cookie' enviado por el agente de usuario. |
+| `System::http_cookie()` | Obtiene el encabezado 'Cookie' enviado por el agente de usuario. |
+| `System::http_accept_language()` | Obtiene el encabezado 'Accept-Language' de la solicitud actual, si está disponible. |
+| `System::http_accept_encoding()` | Obtiene el encabezado 'Accept-Encoding' de la solicitud actual, si está disponible. |
+| `System::http_sec_fetch_dest()` | Obtiene el encabezado 'Sec-Fetch-Dest' de la solicitud actual, si está disponible. |
+| `System::http_sec_fetch_user()` | Obtiene el encabezado 'Sec-Fetch-User' de la solicitud actual, si está disponible. |
+| `System::http_sec_fetch_mode()` | Obtiene el encabezado 'Sec-Fetch-Mode' de la solicitud actual, si está disponible. |
+| `System::http_sec_fetch_site()` | Obtiene el encabezado 'Sec-Fetch-Site' de la solicitud actual, si está disponible. |
+| `System::http_accept()` | Obtiene el encabezado 'Accept' de la solicitud actual, si está disponible. |
+| `System::http_user_agent()` | Obtiene el encabezado 'User-Agent' de la solicitud actual, si está disponible. Esta es una cadena que indica el agente de usuario utilizado para acceder a la página. Entre otras opciones, puedes utilizar este valor con `get_browser()` para personalizar la salida de la página en función de las capacidades del agente de usuario. |
+| `System::http_upgrade_insecure_requests()` | Obtiene el valor del encabezado 'Upgrade-Insecure-Requests' de la solicitud actual, si está disponible. |
+| `System::http_sec_ch_ua_platform()` | Obtiene la plataforma de la conexión del usuario, si está disponible. |
+| `System::http_sec_ch_ua_mobile()` | Obtiene la plataforma de conexión móvil, si está disponible. |
+| `System::http_host()` | Obtiene el encabezado 'Host' de la solicitud actual, si está disponible. |
+| `System::request_time_float()` | Obtiene la marca de tiempo del inicio de la solicitud con precisión de microsegundos. Disponible desde PHP 5.4.0. |
+| `System::request_time()` | Obtiene la marca de tiempo Unix del inicio de la solicitud. Disponible desde PHP 5.1.0. |
+
+## Clase PhpRunTime
+
+La clase `PhpRunTime` proporciona métodos para gestionar la configuración de PHP en tiempo de ejecución. Permite establecer, obtener y restaurar opciones de configuración, así como verificar su existencia y estado.
+
+### Métodos Disponibles
+
+| Método                              | Descripción                                                                                                                                                                     |
+|-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `PhpRunTime::set(string $option, $value): bool` | Establece el valor de una opción de configuración de PHP en tiempo de ejecución utilizando `ini_set()`.                                                         |
+| `PhpRunTime::get(string $option)`   | Obtiene el valor actual de una opción de configuración de PHP. Si la opción no está configurada o no se encuentra, retorna `null`.                              |
+| `PhpRunTime::restore(string $option): bool` | Restaura el valor de una opción de configuración de PHP a su valor predeterminado. Retorna `true` si la restauración es exitosa, o `false` en caso contrario.  |
+| `PhpRunTime::restoreAll(): bool`    | Restaura todas las opciones de configuración de PHP a sus valores predeterminados. Retorna `true` si todas las restauraciones son exitosas, o `false` si no.   |
+| `PhpRunTime::isOptionSet(string $option): bool` | Verifica si una opción de configuración está establecida y tiene un valor no vacío. Retorna `true` si la opción está configurada, o `false` si no.          |
+| `PhpRunTime::doesOptionExist(string $option): bool` | Verifica si una opción de configuración existe en el archivo `php.ini`. Retorna `true` si la opción existe, o `false` si no.                                |
+
+### Ejemplos de Uso
+
+#### Establecer una opción de configuración
 
 ```php
-# ALGUNOS EJEMPLOS 
+use Rmunate\Server\PhpRunTime;
 
-#¿El usuario se conecta desde un IPhone?
-Server::agent()->is_iPhone(); 
-// RESULTADO:
-// True Or False
+// Establecer la opción "display_errors" en "On"
+PhpRunTime::set('display_errors', 'On');
 
-#Se obtiene la información completa del dispositivo desde donde se conectan.
-Server::agent()->get();
-// RESULTADO:
-// {#461 ▼ 
-//   +"http_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
-//   +"is_iPhone": false
-//   +"is_Macintosh": true
-//   +"is_Linux": false
-//   +"is_Android": false
-//   +"is_Windows": false
-//   +"browser": {#458 ▼
-//     +"name": "Google Chrome"
-//     +"version": "110.0.0.0"
-//     +"platform": "Macintosh"
-//   }
-// }130853
-
-#Sistema Operativo Donde Corre PHP.
-Server::php_uname();
-// RESULTADO:
-// "Darwin MacBook-Pro-de-Grupo.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:08:47 PST 2022; root:xnu-8792.61.2~4/RELEASE_X86_64 x86_64"
-
+// Verificar si la opción está configurada y tiene un valor no vacío
+if (PhpRunTime::isOptionSet('display_errors')) {
+    echo 'La opción "display_errors" está activada.';
+} else {
+    echo 'La opción "display_errors" no está configurada.';
+}
 ```
 
-## Mantenedores
-- Ingeniero, Raúl Mauricio Uñate Castro (raulmauriciounate@gmail.com)
+#### Obtener el valor de una opción de configuración
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+```php
+use Rmunate\Server\PhpRunTime;
+
+// Obtener el valor actual de la opción "max_execution_time"
+$maxExecutionTime = PhpRunTime::get('max_execution_time');
+
+if ($maxExecutionTime !== null) {
+    echo "El valor actual de 'max_execution_time' es: $maxExecutionTime segundos.";
+} else {
+    echo "La opción 'max_execution_time' no está configurada.";
+}
+```
+
+#### Restaurar una opción de configuración
+
+```php
+use Rmunate\Server\PhpRunTime;
+
+// Establecer temporalmente la opción "memory_limit" en "256M"
+PhpRunTime::set('memory_limit', '256M');
+
+// Restaurar la opción "memory_limit" a su valor predeterminado
+PhpRunTime::restore('memory_limit');
+
+// Verificar si la opción está configurada y tiene un valor no vacío
+if (PhpRunTime::isOptionSet('memory_limit')) {
+    echo 'La opción "memory_limit" está configurada.';
+} else {
+    echo 'La opción "memory_limit" no está configurada.';
+}
+```
+
+#### Restaurar todas las opciones de configuración
+
+```php
+use Rmunate\Server\PhpRunTime;
+
+// Establecer temporalmente algunas opciones de configuración
+PhpRunTime::set('display_errors', 'On');
+PhpRunTime::set('error_reporting', E_ALL);
+
+// Restaurar todas las opciones a sus valores predeterminados
+PhpRunTime::restoreAll();
+
+// Verificar si las opciones están configuradas y tienen valores no vacíos
+if (PhpRunTime::isOptionSet('display_errors') || PhpRunTime::isOptionSet('error_reporting')) {
+    echo 'Algunas opciones no pudieron ser restauradas.';
+} else {
+    echo 'Todas las opciones fueron restauradas correctamente.';
+}
+```
+
+### Aclaraciones
+
+- Los cambios realizados con el método `set()` son válidos solo durante la ejecución del script actual y no afectan al archivo `php.ini`. Para hacer cambios permanentes, es necesario editar el archivo `php.ini` manualmente.
+
+- Algunas opciones de configuración pueden estar deshabilitadas en entornos compartidos de alojamiento (shared hosting), lo que puede limitar la capacidad de cambiar ciertas configuraciones.
+
+- Es importante tener cuidado al modificar la configuración de PHP, ya que algunos cambios pueden afectar el rendimiento y la seguridad de las aplicaciones. Se recomienda consultar la documentación oficial de PHP para obtener información detallada sobre cada opción de configuración.
+
+
+
+## Clase LaravelRuntime
+La clase `LaravelRuntime` te faculta para modificar los valores de configuración de Laravel en tiempo de ejecución. Es importante tener en cuenta que estos cambios no afectarán los valores en el archivo `.env`, sino que solo se aplicarán mientras ejecutas los scripts.
+
+A continuación, te mostraremos varios ejemplos posibles para que logres identificar las amplias facilidades de uso.
+
+### Métodos Disponibles
+
+#### App (Configuración de los valores del archivo app.php)
+
+Podrás modificar u obtener cualquier valor que se encuentre definido dentro del archivo `config/app.php` de Laravel.
+
+##### Cómo obtener valores
+
+```php
+LaravelRuntime::app()->get('APP_NAME');
+LaravelRuntime::app('maintenance')->get('driver');
+```
+
+##### Cómo cambiar valores
+
+```php
+LaravelRuntime::app()->set('APP_NAME', 'CodeMaestro');
+LaravelRuntime::app('maintenance')->set('driver', 'file');
+```
+
+#### Auth (Configuración de los valores del archivo auth.php)
+
+Podrás modificar u obtener cualquier valor que se encuentre definido dentro del archivo `config/auth.php` de Laravel.
+
+##### Cómo obtener valores
+
+```php
+LaravelRuntime::auth('defaults')->get('guard');
+LaravelRuntime::auth()->get('defaults.guard');
+```
+
+##### Cómo cambiar valores
+
+```php
+LaravelRuntime::auth('defaults')->set('guard', 'api');
+LaravelRuntime::auth()->set('defaults.guard', 'api');
+```
+
+#### Broadcasting (Configuración de los valores del archivo broadcasting.php)
+
+Podrás modificar u obtener cualquier valor que se encuentre definido dentro del archivo `config/broadcasting.php` de Laravel.
+
+##### Cómo obtener valores
+
+```php
+LaravelRuntime::broadcasting()->get('default');
+LaravelRuntime::broadcasting('connections.pusher')->get('driver');
+```
+
+##### Cómo cambiar valores
+
+```php
+LaravelRuntime::broadcasting()->set('default', 'null');
+LaravelRuntime::broadcasting('connections.pusher')->set('driver', 'pusher');
+```
+
+#### Cache (Configuración de los valores del archivo cache.php)
+
+Podrás modificar u obtener cualquier valor que se encuentre definido dentro del archivo `config/cache.php` de Laravel.
+
+##### Cómo obtener valores
+
+```php
+LaravelRuntime::cache()->get('default');
+LaravelRuntime::cache('stores.array.driver')->get();
+```
+
+##### Cómo cambiar valores
+
+```php
+LaravelRuntime::cache()->set('default', 'null');
+LaravelRuntime::cache('stores.array')->set('driver', 'array');
+```
+
+#### Cors (Configuración de los valores del archivo cors.php)
+
+Podrás modificar u obtener cualquier valor que se encuentre definido dentro del archivo `config/cors.php` de Laravel.
+
+##### Cómo obtener valores
+
+```php
+LaravelRuntime::cors()->get('supports_credentials');
+```
+
+##### Cómo cambiar valores
+
+```php
+LaravelRuntime::cors()->set('supports_credentials', false);
+```
+
+#### Database (Configuración de los valores del archivo database.php)
+
+Podrás modificar u obtener cualquier valor que se encuentre definido dentro del archivo `config/database.php` de Laravel.
+
+##### Cómo obtener valores
+
+```php
+LaravelRuntime::database('connections')->get('mysql');
+LaravelRuntime::database('connections.mysql')->get('database');
+```
+
+##### Cómo cambiar valores
+
+```php
+LaravelRuntime::database('connections.mysql')->set('database', 'newDB');
+LaravelRuntime::database('connections.mysql')->set('username', 'newUser');
+LaravelRuntime::database('connections.mysql')->set('password', 'newPass');
+```
+
+#### Filesystems (Configuración de los valores del archivo filesystems.php)
+
+Podrás modificar u obtener cualquier valor que se encuentre definido dentro del archivo `config/filesystems.php` de Laravel.
+
+##### Cómo obtener valores
+
+```php
+LaravelRuntime::filesystems('disks')->get('s3');
+```
+
+##### Cómo cambiar valores
+
+```php
+LaravelRuntime::filesystems('disks.s3')->set('key', 'XXXXXXX');
+LaravelRuntime::filesystems('disks.s3')->set('secret', 'XXXXXXX');
+```
+
+#### Hashing (Configuración de los valores del archivo hashing.php)
+
+Podrás modificar u obtener cualquier valor que se encuentre definido dentro del archivo `config/hashing.php` de Laravel.
+
+##### Cómo obtener valores
+
+```php
+LaravelRuntime::hashing()->get('driver');
+```
+
+##### Cómo cambiar valores
+
+```php
+LaravelRuntime::hashing()->set('driver', 'bcrypt');
+```
+
+#### Logging (Configuración de los valores del archivo logging.php)
+
+Podrás modificar u obtener cualquier valor que se encuentre definido dentro del archivo `config/logging.php` de Laravel.
+
+##### Cómo obtener valores
+
+```php
+LaravelRuntime::logging('channels')->get('stack');
+```
+
+##### Cómo cambiar valores
+
+```php
+LaravelRuntime::logging('channels.stack')->set('driver', 'stack');
+```
+
+#### Mail (Configuración de los valores del archivo mail.php)
+
+Podrás modificar u obtener cualquier valor que se encuentre definido dentro del archivo `config/mail.php` de Laravel.
+
+##### Cómo obtener valores
+
+```php
+LaravelRuntime::mail('mailers')->get('smtp');
+```
+
+##### Cómo cambiar valores
+
+```php
+LaravelRuntime::mail('mailers.smtp')->set('username', 'email@domain.com');
+LaravelRuntime::mail('mailers.smtp')->set('password', 'XXXXXXXXX');
+LaravelRuntime::mail('mailers.smtp')->set('port', 587);
+```
+
+#### Queue (Configuración de los valores del archivo queue.php)
+
+Podrás modificar u obtener cualquier valor que se encuentre definido dentro del archivo `config/queue.php` de Laravel.
+
+##### Cómo obtener valores
+
+```php
+LaravelRuntime::queue()->get('default');
+```
+
+##### Cómo cambiar valores
+
+```php
+LaravelRuntime::queue('connections.sync')->set('driver', 'sync');
+```
+
+#### Sanctum (Configuración de los valores del archivo sanctum.php)
+
+Podrás modificar u obtener cualquier valor que se encuentre definido dentro del archivo `config/sanctum.php` de Laravel.
+
+##### Cómo obtener valores
+
+```php
+LaravelRuntime::sanctum()->get('expiration');
+```
+
+##### Cómo cambiar valores
+
+```php
+LaravelRuntime::sanctum()->set('expiration', null);
+```
+
+#### Services (Configuración de los valores del archivo services.php)
+
+Podrás modificar u obtener cualquier valor que se encuentre definido dentro del archivo `config/services.php` de Laravel.
+
+##### Cómo obtener valores
+
+```php
+LaravelRuntime::services('mailgun')->get('domain');
+```
+
+##### Cómo cambiar valores
+
+```php
+LaravelRuntime::services('mailgun')->set('domain', 'XXXXXXXX');
+```
+
+#### Session (Configuración de los valores del archivo session.php)
+
+Podrás modificar u obtener cualquier valor que se encuentre definido dentro del archivo `config
+
+/session.php` de Laravel.
+
+##### Cómo obtener valores
+
+```php
+LaravelRuntime::session()->get('lifetime');
+```
+
+##### Cómo cambiar valores
+
+```php
+LaravelRuntime::session()->set('lifetime', 60);
+```
+
+#### View (Configuración de los valores del archivo view.php)
+
+Podrás modificar u obtener cualquier valor que se encuentre definido dentro del archivo `config/view.php` de Laravel.
+
+##### Cómo obtener valores
+
+```php
+LaravelRuntime::view()->get('paths');
+```
+
+##### Cómo cambiar valores
+
+```php
+LaravelRuntime::view()->set('paths', [
+    resource_path('views'),
+]);
+```
+
+## Clase Agent
+Esta clase ofrece una gran variedad de metodos que te permitirá conocer los datos del agente de conexion a la aplicacion.
+
+### Metodos Disponibles.
+| Método | Descripción |
+|-|-|-|
+| `Agent::get()` | Retorna el agente de conexión actual. |
+| `Agent::detected()->isMobile()` | Valida si el agente proviene de un dispositivo  . |
+| `Agent::detected()->isDesktop()` | Retorna `true` si el usuario no está accediendo desde un dispositivo móvil. |
+| `Agent::detected()->isIPhone()` | Retorna `true` si el agente del usuario corresponde a un iPhone. |
+| `Agent::detected()->isMacintosh()` | Retorna `true` si el agente del usuario corresponde a un sistema operativo Macintosh. |
+| `Agent::detected()->isLinux()` | Retorna `true` si el agente del usuario corresponde a un sistema operativo Linux (PC o sistemas Android). |
+| `Agent::detected()->isWindows()` | Retorna `true` si el agente del usuario corresponde a un sistema operativo Windows. |
+| `Agent::detected()->isWindowsPhone()` | Retorna `true` si el agente del usuario corresponde a un sistema operativo Windows Phone. |
+| `Agent::detected()->isIpod()` | Retorna `true` si el agente del usuario corresponde a un iPod. |
+| `Agent::detected()->isIpad()` | Retorna `true` si el agente del usuario corresponde a un iPad. |
+| `Agent::detected()->isIMac()` | Retorna `true` si el agente del usuario corresponde a un iMac. |
+| `Agent::detected()->clientOS()` | Retorna el nombre del sistema operativo del cliente actual. |
+| `Agent::detected()->browser()` | Retorna información sobre el navegador utilizado por el cliente. |
+| `Agent::detected()->remoteAddress()` | Retorna la IP en uso en la conexión al sistema. |
+| `Agent::detected()->remotePort()` | Retorna el puerto en uso en la conexión al sistema. |
+
+Facilmente podras extraer datos de la conexion a tu aplicacion.

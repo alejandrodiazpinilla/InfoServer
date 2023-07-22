@@ -10,7 +10,7 @@ trait EnvironmentInfo
      * @param  string  $key
      * @return bool
      */
-    protected function hasVariable($key)
+    public static function hasEnvironmentVariable($key)
     {
         return !is_null(env($key));
     }
@@ -22,7 +22,7 @@ trait EnvironmentInfo
      * @param  mixed  $default
      * @return mixed
      */
-    protected function getVariable($key, $default = null)
+    public static function getEnvironmentVariable($key, $default = null)
     {
         return env($key, $default);
     }
@@ -32,7 +32,7 @@ trait EnvironmentInfo
      *
      * @return array
      */
-    public static function allVariables()
+    public static function allEnvironmentVariables()
     {
         return (object) $_ENV;
     }
