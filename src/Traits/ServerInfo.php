@@ -1,6 +1,6 @@
 <?php
 
-namespace Rmunate\Server\Traits;
+namespace Rmunate\InfoServer\Traits;
 
 trait ServerInfo
 {
@@ -38,6 +38,14 @@ trait ServerInfo
 
         // Get the value of the server variable and return it.
         return isset($_SERVER[$variable]) ? $_SERVER[$variable] : null;
+    }
+
+    /**
+     * Get the all Data $_SERVER.
+     */
+    public static function allServerVariables()
+    {
+        return (object) $_SERVER;
     }
     
     /**

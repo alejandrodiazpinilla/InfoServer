@@ -1,5 +1,5 @@
 {
-    "name": "rmunate/server-manager",
+    "name": "rmunate/info-server",
     "description": "This powerful tool provides you with access to and management of all relevant server information at runtime within your Laravel application. With a user-friendly interface and efficient methods, this class allows you to extract crucial data about the system, browser, and device of the user connecting to your application.",
     "keywords": [
         "server",
@@ -12,7 +12,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Rmunate\\Server\\": "src/"
+            "Rmunate\\InfoServer\\": "src/"
         }
     },
     "authors": [
@@ -25,6 +25,7 @@
     ],
     "require": {
         "php": "^7.4|^8.0",
+        "rmunate/agent-detection": "^1.0",
         "illuminate/support": "^9.0|^10.0"
     },
     "require-dev": {},

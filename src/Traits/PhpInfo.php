@@ -1,6 +1,6 @@
 <?php
 
-namespace Rmunate\Server\Traits;
+namespace Rmunate\InfoServer\Traits;
 
 trait PhpInfo
 {
