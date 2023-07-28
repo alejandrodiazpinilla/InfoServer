@@ -1,5 +1,6 @@
-# SYSTEM (Power and Total Control for Your Server!)
-The System Library allows you to retrieve all information related to server-side variables, values, and configurations (Server Variables, Environment Variables, PHP Values, and their configurations). It provides an easy and convenient way to work with server data.
+# SYSTEM (The Super Global Wrapper!)
+
+The System Library allows you to query all information related to existing server-side variables, values, and configurations (Server Variables, Environment Variables, PHP Values, and Configurations). It provides an easy and convenient way to work with server data.
 
 ![SYSTEM](https://github.com/rmunate/PHPInfoServer/assets/91748598/75499e3e-725b-4f27-ad10-4db285454cc1)
 
@@ -66,6 +67,7 @@ Finally, you have a range of methods to know server values.
 | ------ | ----------- |
 | `System::hasServerVariable($variable)` | Verifies if a specific server variable is defined. |
 | `System::getServerVariable($variable)` | Gets the value of a specific server variable. |
+| `System::allServerVariables()` | All data variable $_SERVER. |
 | `System::user()` | Gets the user running the PHP script, if available. |
 | `System::home()` | Gets the home directory of the user, if available. |
 | `System::script_name()` | Gets the current script's path and name. Useful for self-referencing pages. |
@@ -83,9 +85,7 @@ Finally, you have a range of methods to know server values.
 | `System::request_scheme()` | Gets the scheme used in the request, either "HTTP" or "HTTPS". |
 | `System::document_root()` | Gets the server's root directory as defined in the server's configuration file. |
 | `System::remote_addr()` | Gets the IP address from which the current user is viewing the page. |
-| `System::server_port()` | Gets the server's port used for communication. By default, the value
-
- will be '80'. If SSL is used, for example, this value will change to the one defined for the secure HTTP port. |
+| `System::server_port()` | Gets the server's port used for communication. By default, the value will be '80'. If SSL is used, for example, this value will change to the one defined for the secure HTTP port. |
 | `System::server_addr()` | Gets the IP address of the server where the script is currently running. |
 | `System::server_name()` | Gets the name of the server where the script is currently running. If the script is running on a virtual host, the value will be the one defined for that virtual host. |
 | `System::server_software()` | Gets the server software identification string provided in the response headers to requests. |

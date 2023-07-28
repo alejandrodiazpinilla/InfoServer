@@ -1,5 +1,7 @@
-# SYSTEM (¡Potencia y Control Total DeL Servidor!)
-La Libreria System permite consultar toda la información referente a las variables, valores y configuraciones existentes del lado del servidor (Variables del Servidor, Variables de Entorno, Valores de PHP y sus configuraciones). Una forma fácil y conveniente de trabajar con los datos del Servidor.
+# SYSTEM (¡La emboltura super global!)
+
+La Libreria System permite consultar toda la información referente a las variables, valores y configuraciones existentes del lado del servidor (Variables del Servidor, Variables de Entorno, Valores de PHP y sus configuraciones).
+Una forma fácil y conveniente de trabajar con los datos del Servidor.
 
 ![SYSTEM](https://github.com/rmunate/PHPInfoServer/assets/91748598/75499e3e-725b-4f27-ad10-4db285454cc1)
 
@@ -66,12 +68,11 @@ Por último, tienes toda una gama de métodos para conocer los valores del servi
 | ------ | ----------- |
 | `System::hasServerVariable($variable)` | Verifica si una variable de servidor específica está definida. |
 | `System::getServerVariable($variable)` | Obtiene el valor de una variable de servidor específica. |
+| `System::allServerVariables()` | Toda la data disponible en la variable $_SERVER. |
 | `System::user()` | Obtiene el usuario que está ejecutando el script de PHP, si está disponible. |
 | `System::home()` | Obtiene el directorio de inicio del usuario, si está disponible. |
 | `System::script_name()` | Obtiene la ruta y el nombre del script actual. Útil para autoreferenciar páginas. |
-| `System::
-
-request_uri()` | Obtiene la URI utilizada para acceder a la página. |
+| `System::request_uri()` | Obtiene la URI utilizada para acceder a la página. |
 | `System::query_string()` | Obtiene la cadena de consulta de la solicitud actual, si está disponible. |
 | `System::request_method()` | Obtiene el método de solicitud utilizado para acceder a la página. |
 | `System::server_protocol()` | Obtiene el nombre y número de revisión del protocolo de información a través del cual se solicitó la página. |
