@@ -4,6 +4,7 @@ namespace Rmunate\InfoServer;
 
 use Rmunate\AgentDetection\Agent;
 use Rmunate\InfoServer\Traits\PhpInfo;
+use Rmunate\InfoServer\Bases\BaseServer;
 use Rmunate\InfoServer\Traits\ServerInfo;
 use Rmunate\InfoServer\Traits\ConstantsInfo;
 use Rmunate\InfoServer\Traits\EnvironmentInfo;

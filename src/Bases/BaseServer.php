@@ -1,5 +1,7 @@
 <?php
 
+namespace Rmunate\InfoServer\Bases;
+
 abstract class BaseServer
 {
     /**

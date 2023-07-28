@@ -1,13 +1,13 @@
 {
     "name": "rmunate/info-server",
-    "description": "This powerful tool provides you with access to and management of all relevant server information at runtime within your Laravel application. With a user-friendly interface and efficient methods, this class allows you to extract crucial data about the system, browser, and device of the user connecting to your application.",
+    "description": "The System Library allows you to query all information related to existing server-side variables, values, and configurations (Server Variables, Environment Variables, PHP Values, and Configurations). It provides an easy and convenient way to work with server data.",
     "keywords": [
         "server",
         "php",
-        "altum",
+        "laravel",
         "rmunate"
     ],
-    "homepage": "https://github.com/rmunate/PHPInfoServer",
+    "homepage": "https://github.com/rmunate/InfoServer",
     "type": "library",
     "license": "MIT",
     "autoload": {
@@ -29,8 +29,8 @@
         "illuminate/support": "^9.0|^10.0"
     },
     "require-dev": {},
-    "extra" : {
-        "branch-alias" : {
+    "extra": {
+        "branch-alias": {
             "dev-main": "v2.0.x-dev"
         }
     },
