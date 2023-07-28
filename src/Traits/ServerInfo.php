@@ -41,7 +41,13 @@ trait ServerInfo
     }
 
     /**
-     * Get the all Data $_SERVER.
+     * Get all the $_SERVER data.
+     *
+     * This function returns an object containing all the data from the $_SERVER superglobal array,
+     * which holds server-related information and request details. The data is encapsulated in an
+     * object for easy access and manipulation.
+     *
+     * @return object An object containing all the data from the $_SERVER array.
      */
     public static function allServerVariables()
     {

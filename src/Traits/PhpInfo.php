@@ -5,7 +5,7 @@ namespace Rmunate\InfoServer\Traits;
 trait PhpInfo
 {
     /**
-     * Get the full PHP configuration information (php.ini settings).
+     * Get the full PHP configuration information (php.ini settings)
      * @return array|null An associative array with the configuration settings or null if there was an error.
      */
     public static function php_ini_settings()

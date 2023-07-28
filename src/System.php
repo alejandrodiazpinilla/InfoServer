@@ -20,28 +20,8 @@ use Rmunate\InfoServer\Traits\ServerInfo;
  * - ServerInfo: Provides methods to access server-related information.
  * - EnvironmentInfo: Provides methods to access environment-related information.
  *
- * Usage:
- * ------
- * To use this class, you can simply create an instance of the System class and call its methods to retrieve
- * server environment information and PHP configuration details.
- *
- * Example:
- * --------
- * // Create an instance of the System class
- * $system = new System();
- *
- * // Access server-related information
- * $serverName = $system->getServerName();
- *
- * // Access PHP configuration details
- * $maxExecutionTime = $system->getMaxExecutionTime();
- *
- * Note:
- * -----
- * This class effectively combines various traits to provide a centralized interface for accessing different types
- * of server-related and environment-related information. Traits allow code reusability and help keep the class
- * organized and focused on specific functionality.
  */
+
 class System
 {
     use ConstantsInfo;    // Include trait for retrieving PHP constants information.

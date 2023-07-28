@@ -3,6 +3,7 @@
 namespace Rmunate\InfoServer;
 
 use Rmunate\AgentDetection\Agent;
+use Rmunate\InfoServer\Traits\PhpInfo;
 use Rmunate\InfoServer\Traits\ServerInfo;
 use Rmunate\InfoServer\Traits\ConstantsInfo;
 use Rmunate\InfoServer\Traits\EnvironmentInfo;
@@ -35,10 +36,25 @@ use Rmunate\InfoServer\Traits\EnvironmentInfo;
  */
 class Server extends BaseServer
 {
-    /* Trait inclusion for accessing constants, server, and environment information */
-    use ConstantsInfo;
-    use ServerInfo;
-    use EnvironmentInfo;
+    use ConstantsInfo;    // Include trait for retrieving PHP constants information.
+    use PhpInfo;          // Include trait for retrieving PHP configuration information.
+    use ServerInfo;       // Include trait for retrieving server-related information.
+    use EnvironmentInfo;  // Include trait for retrieving environment-related information.
+
+    /**
+     * Constructor method for the Server class.
+     *
+     * This constructor initializes the Server object by fetching and storing information about the user agent
+     * (browser) using the Agent class from the Rmunate\AgentDetection namespace. The Agent class is used to detect
+     * various properties of the user agent, such as whether it is an iPhone, Macintosh, Linux, Android, Windows,
+     * or a mobile device. The fetched data is then assigned to the 'agent' property of the Server object.
+     *
+     * The Agent class is part of the Rmunate\AgentDetection library, which provides functionality for detecting and
+     * identifying user agents based on the information available in the $_SERVER superglobal array.
+     */
+    public function __construct() {
+        $this->agent = Agent::get();
+    }
 
     /**
      * Method to check if the user agent is an iPhone.
@@ -117,7 +133,7 @@ class Server extends BaseServer
      */
     public function get()
     {
-        return Agent::get();
+        return $this->agent;
     }
     
     /**

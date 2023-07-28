@@ -7,7 +7,7 @@ trait EnvironmentInfo
     /**
      * Determine if the given configuration value exists.
      *
-     * @param  string  $key
+     * @param  string $key
      * @return bool
      */
     public static function hasEnvironmentVariable($key)
@@ -18,8 +18,8 @@ trait EnvironmentInfo
     /**
      * Get the environment variable with the given key.
      *
-     * @param  string  $key
-     * @param  mixed  $default
+     * @param  string $key
+     * @param  mixed $default
      * @return mixed
      */
     public static function getEnvironmentVariable($key, $default = null)
