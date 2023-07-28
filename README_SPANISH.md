@@ -16,6 +16,14 @@ Una forma fácil y conveniente de trabajar con los datos del Servidor.
 4. [Creador](#creador)
 5. [Licencia](#licencia)
 
+## Instalación
+
+Para instalar el paquete a través de Composer, ejecuta el siguiente comando:
+
+```shell
+composer require rmunate/info-server
+```
+
 ## Clase System
 
 ### Métodos Disponibles

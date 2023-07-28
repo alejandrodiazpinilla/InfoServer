@@ -15,6 +15,14 @@ The System Library allows you to query all information related to existing serve
 4. [Creator](#creator)
 5. [License](#license)
 
+## Installation
+
+To install the package via Composer, execute the following command:
+
+```shell
+composer require rmunate/info-server
+```
+
 ## System Class
 
 ### Available Methods
