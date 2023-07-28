@@ -144,7 +144,7 @@ trait ConstantsInfo
 
     /**
      * Get the largest representable floating-point number.
-     * Available since PHP 7.2
+     * Available since PHP 7.2.
      */
     public static function php_float_max()
     {
