@@ -8,6 +8,7 @@ trait ServerInfo
      * Check if a specific server variable is set.
      *
      * @param string $variable The name of the server variable to check.
+     *
      * @return bool True if the server variable is set, false otherwise.
      */
     public static function hasServerVariable(string $variable): bool
@@ -26,6 +27,7 @@ trait ServerInfo
      * Get the value of a specific server variable.
      *
      * @param string $variable The name of the server variable to retrieve.
+     *
      * @return mixed|null The value of the server variable, or null if the variable is not set.
      */
     public static function getServerVariable(string $variable)
@@ -53,7 +55,7 @@ trait ServerInfo
     {
         return (object) $_SERVER;
     }
-    
+
     /**
      * Get the user running the PHP script, if available.
      * Example return: "www-data".

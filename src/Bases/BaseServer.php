@@ -8,9 +8,9 @@ abstract class BaseServer
      * Static method 'agent'
      * ----------------------
      * This method returns an instance of the class that invokes it.
-     * 
+     *
      * @return static An instance of the class that invokes the method.
-     * 
+     *
      * Note:
      * -----
      * The use of 'static' as the return type ensures that when this method is invoked from a child class,

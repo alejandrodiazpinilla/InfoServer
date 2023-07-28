@@ -19,9 +19,7 @@ use Rmunate\InfoServer\Traits\ServerInfo;
  * - PhpInfo: Provides methods to access PHP configuration information.
  * - ServerInfo: Provides methods to access server-related information.
  * - EnvironmentInfo: Provides methods to access environment-related information.
- *
  */
-
 class System
 {
     use ConstantsInfo;    // Include trait for retrieving PHP constants information.
