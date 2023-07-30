@@ -11,18 +11,19 @@ trait PhpInfo
      */
     public static function php_ini_settings()
     {
-        ob_start();
-        phpinfo(INFO_ALL);
-        $phpinfo = ob_get_clean();
+        $settings = ini_get_all();
+        $filteredSettings = [];
+    
+        foreach ($settings as $name => $value) {
 
-        $settings = [];
-        if (preg_match_all('/<tr><td[^>]+>([^<]+)<\/td><td[^>]+>([^<]+)<\/td><\/tr>/', $phpinfo, $matches, PREG_SET_ORDER)) {
-            foreach ($matches as $match) {
-                $settings[$match[1]] = $match[2];
+            // Filtrar las configuraciones con valores "ocultos" o sensibles
+            if (strpos($name, 'password') === false && strpos($name, 'secret') === false) {
+                $filteredSettings[$name] = $value['global_value'];
             }
+            
         }
-
-        return empty($settings) ? null : $settings;
+    
+        return empty($filteredSettings) ? null : $filteredSettings;
     }
 
     /**

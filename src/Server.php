@@ -9,32 +9,6 @@ use Rmunate\InfoServer\Traits\EnvironmentInfo;
 use Rmunate\InfoServer\Traits\PhpInfo;
 use Rmunate\InfoServer\Traits\ServerInfo;
 
-/**
- * Class Server
- * --------------------------------------------
- * This class extends the abstract class BaseServer and provides various methods to access server information
- * and detect user agent details using the Rmunate\AgentDetection\Agent library.
- *
- * Usage:
- * ------
- * To use this class, make sure you have the required dependencies installed (Rmunate\AgentDetection\Agent library).
- * Then, you can create an instance of this class and call its methods to retrieve server and user agent details.
- *
- * Example:
- * --------
- * // Create an instance of the Server class
- * $server = new Server();
- *
- * // Call methods to access server and user agent information
- * $isMobile = $server->is_Mobile();
- * $browser = $server->browser();
- *
- * Note:
- * -----
- * This class uses traits (ConstantsInfo, ServerInfo, EnvironmentInfo) to separate and organize specific sets of
- * methods for accessing different types of information. These traits contain reusable code and help maintain
- * clean and manageable code structure.
- */
 class Server extends BaseServer
 {
     use ConstantsInfo;    // Include trait for retrieving PHP constants information.
