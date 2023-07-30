@@ -13,16 +13,14 @@ trait PhpInfo
     {
         $settings = ini_get_all();
         $filteredSettings = [];
-    
-        foreach ($settings as $name => $value) {
 
+        foreach ($settings as $name => $value) {
             // Filtrar las configuraciones con valores "ocultos" o sensibles
             if (strpos($name, 'password') === false && strpos($name, 'secret') === false) {
                 $filteredSettings[$name] = $value['global_value'];
             }
-            
         }
-    
+
         return empty($filteredSettings) ? null : $filteredSettings;
     }
 
