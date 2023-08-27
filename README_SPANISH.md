@@ -11,6 +11,8 @@ Una forma fácil y conveniente de trabajar con los datos del Servidor.
 
 ![SYSTEM](https://github.com/rmunate/PHPInfoServer/assets/91748598/75499e3e-725b-4f27-ad10-4db285454cc1)
 
+📖 [**DOCUMENTACIÓN EN INGLÉS**](README.md) 📖
+
 ## Tabla de Contenido
 1. [Clase System](#clase-system)
 2. [Métodos Disponibles](#métodos-disponibles)
@@ -148,4 +150,10 @@ System::php_uname();
 - Correo electrónico: raulmauriciounate@gmail.com
 
 ## Licencia
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+Este proyecto se encuentra bajo la [Licencia MIT](https://choosealicense.com/licenses/mit/).
+
+🌟 ¡Apoya Mis Proyectos! 🚀
+
+¡Realiza las contribuciones que veas necesarias, el código es totalmente tuyo. Juntos podemos hacer cosas asombrosas y mejorar el mundo del desarrollo. Tu apoyo es invaluable. ✨
+
+Si tienes ideas, sugerencias o simplemente deseas colaborar, ¡estamos abiertos a todo! ¡Únete a nuestra comunidad y forma parte de nuestro viaje hacia el éxito! 🌐👩‍💻👨‍💻
