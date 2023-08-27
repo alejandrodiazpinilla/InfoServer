@@ -10,6 +10,8 @@ The System Library allows you to query all information related to existing serve
 
 ![SYSTEM](https://github.com/rmunate/PHPInfoServer/assets/91748598/75499e3e-725b-4f27-ad10-4db285454cc1)
 
+📖 [**DOCUMENTACIÓN EN ESPAÑOL**](README_SPANISH.md) 📖
+
 ## Table of Contents
 1. [System Class](#system-class)
 2. [Available Methods](#available-methods)
@@ -147,4 +149,10 @@ System::php_uname();
 - Email: raulmauriciounate@gmail.com
 
 ## License
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+This project is under the [MIT License](https://choosealicense.com/licenses/mit/).
+
+🌟 Support My Projects! 🚀
+
+Make any contributions you see fit; the code is entirely yours. Together, we can do amazing things and improve the world of development. Your support is invaluable. ✨
+
+If you have ideas, suggestions, or just want to collaborate, we are open to everything! Join our community and be part of our journey to success! 🌐👩‍💻👨‍💻
