@@ -8,7 +8,7 @@ The System Library allows you to query all information related to existing serve
 [![Laravel 9.0+](https://img.shields.io/badge/Laravel-9.0%2B-orange.svg)](https://laravel.com)
 [![Laravel 10.0+](https://img.shields.io/badge/Laravel-10.0%2B-orange.svg)](https://laravel.com)
 
-![SYSTEM](https://github.com/rmunate/PHPInfoServer/assets/91748598/75499e3e-725b-4f27-ad10-4db285454cc1)
+![logo-info-server](https://github.com/alejandrodiazpinilla/InfoServer/assets/51100789/21de2dd5-2d2c-4ce5-8d7e-c945eb113240)
 
 📖 [**DOCUMENTACIÓN EN ESPAÑOL**](README_SPANISH.md) 📖
 
